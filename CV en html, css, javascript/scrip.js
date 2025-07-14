@@ -1,6 +1,26 @@
 // Espera a que todo el contenido del DOM esté cargado antes de ejecutar el script
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Modal de bienvenida
+    window.onload = function () {
+    const modal = document.getElementById("welcomeModal");
+    const closeBtn = modal.querySelector(".close");
+
+    modal.style.display = "block";
+
+    // Cerrar al hacer clic en la X
+    closeBtn.onclick = function () {
+        modal.style.display = "none";
+    };
+
+    // Cerrar al hacer clic fuera del modal
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+};
+
     // MENÚ DE NAVEGACIÓN RESPONSIVO
 
     // Se selecciona el botón de menú (ícono de hamburguesa)
@@ -57,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // VALIDACIÓN DEL FORMULARIO
-        
+   
         // Cuando se envía el formulario
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault(); // Previene el envío tradicional del formulario
